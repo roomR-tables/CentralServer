@@ -4,7 +4,6 @@ from pyramid.config import Configurator
 from central_server import views
 
 logging.basicConfig()
-log = logging.getLogger('central_server')
 
 
 def main(global_config, **settings):
