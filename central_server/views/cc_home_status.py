@@ -18,7 +18,7 @@ def cc_status_view(request):
     # The callback for when the client receives a CONNACK response from the server.
     def on_connect(client, userdata, flags, rc):
         client.subscribe(topic='cc/' + request.matchdict['id'] + '/status', qos=1)
-        client.publish(topic='cc/' + request.matchdict['id'] + '/cmd', payload='request_status', qos=1)
+        client.publish(topic='cc/' + request.matchdict['id'] + '/cmd', payload='{"cmd": "request_status", "payload": ""}', qos=1)
 
     # The callback for when a PUBLISH message is received from the server.
     def on_message(client, userdata, msg):
